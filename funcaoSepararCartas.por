@@ -2,8 +2,9 @@ programa {
   inclua biblioteca Util --> u
   cadeia baralho[40]
   logico ocupacaoCarta [40]
-  inteiro maoJogador1[3], maoJogador2[3]
+  inteiro valor_sorteado, maoJogador1[3], maoJogador2[3]
   
+    
   funcao inicio() {
     baralho[0] = "1 de Espada" // - 40 pontos
     baralho[1] = "1 de Paus" // - 39 pontos
@@ -46,47 +47,15 @@ programa {
     baralho[38] = "4 de Ouro" //- 28 pontos
     baralho[39] = "4 de Copa" //- 28 pontos
 
-    
-    partida()
-    //escreva(ocupacaoCarta)
-  }
-  funcao partida(){
-    para(inteiro i = 0; i<2 ; i++){
-      rodada()
-    }
-  }
-  funcao rodada (){
-    inteiro jogador1, jogador2, rodada = 1
-    jogador1 = 0
-    jogador2 = 0
     sortearCartas (maoJogador1)
     sortearCartas (maoJogador2)
     escreva(maoJogador1, "\n")
     escreva(maoJogador2)
-    faca {
-      inteiro cartaDigitada1 = escolherCarta(maoJogador1)
-      escreva(cartaDigitada1)
-      inteiro cartaDigitada2 = escolherCarta(maoJogador2)
-      
-      se(cartaDigitada1 < cartaDigitada2){
-        jogador1++
-        escreva("Jogador1 venceu a rodada;")
-      } senao {
-        jogador2++
-        escreva("Jogador2 venceu a rodada")
-      }
-      escreva(jogador1)
-      escreva(jogador2)
-      se(jogador1 == 2){
-        rodada = 0
-      }senao se(jogador2 == 2){
-        rodada = 0
-      }  
-    } enquanto (rodada != 0) 
+    //escreva(ocupacaoCarta)
+    
   }
   //função para distribuição de cartas para cada jogador, sem distribuir cartas já na mão. 
   funcao sortearCartas (inteiro maoJogador1funcao[]){
-    inteiro valor_sorteado
     para(inteiro i = 0; i<3 ; i++){
       valor_sorteado = u.sorteia(0, 39)
       se(ocupacaoCarta[valor_sorteado]==verdadeiro){
@@ -97,24 +66,6 @@ programa {
         ocupacaoCarta[valor_sorteado]= verdadeiro
       }
     }
-  }
-  // Função de verificação se a carta jogada esta na mão do jogador ou se existe. Recebendo as carta da mão do jogador atraves de um vetor logo e digitada
-  // a carta para verificação assim entrando num loop de verficação se a carta esta na mão e se esta disponivel. 
-  funcao inteiro escolherCarta(inteiro cartasJogador[]){
-    inteiro loop = 1
-    cadeia digitarCarta
-    faca{
-      leia (digitarCarta)
-      para(inteiro i = 0; i<3; i++){
-        se(digitarCarta == baralho[cartasJogador[i]]){
-          se(ocupacaoCarta[cartasJogador[i]] == verdadeiro){
-            ocupacaoCarta[cartasJogador[i]] = falso
-            retorne cartasJogador[i]
-          } senao {
-            escreva("Essa carta já esta na mesa")
-          }
-        }
-      }
-    } enquanto (loop != 0)
+    
   }
 }
