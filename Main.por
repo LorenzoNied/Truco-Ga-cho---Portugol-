@@ -3,6 +3,7 @@ programa {
   cadeia baralho[40]
   logico ocupacaoCarta [40]
   inteiro maoJogador1[3], maoJogador2[3]
+  inteiro pontosP1   = 0, pontosP2 = 0
   
   funcao inicio() {
     baralho[0] = "1 de Espada" // - 40 pontos
@@ -53,19 +54,23 @@ programa {
   funcao partida(){
     para(inteiro i = 0; i<2 ; i++){
       rodada()
+      escreva(pontosP1,pontosP2)
     }
   }
+  //funcao da rodada, embaralhar cartas e somar pontos para partida.
   funcao rodada (){
     inteiro jogador1, jogador2, rodada = 1
     jogador1 = 0
     jogador2 = 0
     sortearCartas (maoJogador1)
     sortearCartas (maoJogador2)
-    escreva(maoJogador1, "\n")
-    escreva(maoJogador2)
-    faca {
+    escreva(baralho[maoJogador1[0]],baralho[maoJogador1[1]],baralho[maoJogador1[2]], "\n")
+    escreva(baralho[maoJogador2[0]],baralho[maoJogador2[1]],baralho[maoJogador2[2]])
+
+    para(inteiro i = 3; i>0 ; i--){
+      cartaTela3_2(maoJogador1, i)
       inteiro cartaDigitada1 = escolherCarta(maoJogador1)
-      escreva(cartaDigitada1)
+      cartaTela3_2(maoJogador2, i)
       inteiro cartaDigitada2 = escolherCarta(maoJogador2)
       
       se(cartaDigitada1 < cartaDigitada2){
@@ -78,11 +83,23 @@ programa {
       escreva(jogador1)
       escreva(jogador2)
       se(jogador1 == 2){
-        rodada = 0
+        pontosP1++
+        retorne
       }senao se(jogador2 == 2){
-        rodada = 0
+        pontosP2++
+        retorne
       }  
-    } enquanto (rodada != 0) 
+    } 
+  }
+  funcao cartaTela3_2(inteiro maoDoJogador[], inteiro x){
+    inteiro locacao[x], y = 0
+      para(inteiro i = 0; i<3; i++){
+        se(ocupacaoCarta[maoDoJogador[i]] == verdadeiro){
+          locacao[y] = maoDoJogador[i]
+          y++
+        }
+      }
+    escreva(locacao)
   }
   //função para distribuição de cartas para cada jogador, sem distribuir cartas já na mão. 
   funcao sortearCartas (inteiro maoJogador1funcao[]){
@@ -98,8 +115,7 @@ programa {
       }
     }
   }
-  // Função de verificação se a carta jogada esta na mão do jogador ou se existe. Recebendo as carta da mão do jogador atraves de um vetor logo e digitada
-  // a carta para verificação assim entrando num loop de verficação se a carta esta na mão e se esta disponivel. 
+  // Função de verificação se a carta jogada esta na mão do jogador ou se existe. 
   funcao inteiro escolherCarta(inteiro cartasJogador[]){
     inteiro loop = 1
     cadeia digitarCarta
