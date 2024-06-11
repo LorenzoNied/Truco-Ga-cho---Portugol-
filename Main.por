@@ -1,21 +1,22 @@
 programa {  
-    inclua biblioteca Util --> u
+  inclua biblioteca Util --> u
 
-    cadeia baralho[40]
-    logico ocupacaoCarta [40]
-    inteiro maoJogador1[3], maoJogador2[3]
-    inteiro pontosP1   = 0, pontosP2 = 0
+  cadeia baralho[41]
+  logico ocupacaoCarta [40]
+  inteiro maoJogador1[3], maoJogador2[3]
+  inteiro pontosPlayer1_Partida, pontosPlayer2_Partida 
 
-    // essa parte funcionara como um cronometro que dara um tempo para apareceser as seguintes mensagens
-    inteiro contagem = 0
-    cadeia olhos[3] = {"- -","O O","U U"}
-    cadeia mensagens[3] = {"Bem vindo forasteiro", "Soube que tu es o melhor jogador daqui", " me impresione guri "}
-    inteiro indice = 0
-    // variaveis que funcionarao para o menu inicial para voltar a ele e continuar, poderia usar apenas uma, mas acho que fica melhor assim
-    inteiro menu_inicial
-    cadeia voltar
-    inteiro continuar
-    // usei a fun��o menu apenas para executar o que � importante
+  // essa parte funcionara como um cronometro que dara um tempo para apareceser as seguintes mensagens
+  inteiro contagem = 01
+  inteiro indice = 0
+  cadeia olhos[3] = {"- -","O O","U U"}
+  cadeia mensagens[3] = {"Bem vindo forasteiro", "Soube que tu es o melhor jogador daqui", " me impresione guri "}
+  // variaveis que funcionarao para o menu inicial para voltar a ele e continuar, poderia usar apenas uma, mas acho que fica melhor assim
+  cadeia menu_inicial
+  cadeia voltar
+  cadeia continuar
+
+  // usei a funï¿½ï¿½o menu apenas para executar o que ï¿½ importante
   funcao inicio() {
     baralho[0] = "1 de Espada" // - 40 pontos
     baralho[1] = "1 de Paus" // - 39 pontos
@@ -57,206 +58,217 @@ programa {
     baralho[37] = "4 de Espada" //- 28 pontos
     baralho[38] = "4 de Ouro" //- 28 pontos
     baralho[39] = "4 de Copa" //- 28 pontos
+    baralho[40] = "Nada na Mesa"
     
     //direciona para o menu principal
     menu()
+    
   }
-
-  //fun��o faz a execu��o da 1� parte do menu
+  //funï¿½ï¿½o faz a execuï¿½ï¿½o da 1ï¿½ parte do menu
   funcao menu() {
     limpa()
-    escreva(" _______________________________________________________________________________________________ \n")
-    escreva("|###############################################################################################|\n")
-    escreva("|###############################################################################################|\n")
-    escreva("|############____   ____|####   ____|########  |#####  |###   _______|####   _______  |#########|\n")
-    escreva("|################  |#########  |####  |######  |#####  |###  |############  |#######  |#########|\n")
-    escreva("|################  |#########  |#### _|######  |#####  |###  |############  |#######  |#########|\n")
-    escreva("|################  |#########  |## _|########  |#####  |###  |############  |#######  |#########|\n")
-    escreva("|################  |#########  |####_ |######_ |#####  |###  |############  |#######  |#########|\n")
-    escreva("|################__|#########__|#####__|######________|####__________|####____________|#########|\n")
-    escreva("|###############################################################################################|\n")
-    escreva("|                                 -Truco Ga�derio-1.0.0-                                        |\n")
-    escreva("|                                      1 - Jogar                                     |\\__/|     |\n")
-    escreva("|                                      2 - Creditos                                 ( ^ - ^)    |\n")
-    escreva("|                                      3 - sair                                   \\  /   |      |\n")
-    escreva("|                                                                                  \\(  vv)      |\n")
-    escreva("|                                                                                 |TTTTTTTTTT|  |\n")
-    escreva("|                                                                                  \\_\\_|_//_/   |\n")
-    escreva("|                                                                                   |_|__|_|    |\n")
-    escreva("|                                                                                   |_|__|_|    |\n")
-    escreva("|===============================================================================================|\n")
+    escreva("╔═══════════════════════════════════════════════════════════════════════════════════════════════╗\n")
+    escreva("║ █████████████████████████████████████████████████████████████████████████████████████████████ ║\n")
+    escreva("║ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ║\n")
+    escreva("║ ▓▓▓▓▓▓▓▓▓▓▓____  ╔════|▓▓▓▓  ╔════|▓▓▓▓▓▓▓▓  ║▓▓▓▓▓  ║▓▓▓  ╔═══════|▓▓▓▓  ╔═══════  ║▓▓▓▓▓▓▓▓ ║\n")
+    escreva("║ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓▓▓  ║▓▓▓▓  ║▓▓▓▓▓▓  ║▓▓▓▓▓  ║▓▓▓  ║▓▓▓▓▓▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓▓ ║\n")
+    escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒▒▒ _║▒▒▒▒▒▒  ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+    escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒ _║▒▒▒▒▒▒▒▒  ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+    escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒▒▒_ ║▒▒▒▒▒▒_ ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+    escreva("║ ░░░░░░░░░░░░░░░__║░░░░░░░░░__║░░░░░__║░░░░░░________║▒▒▒▒__________║░░░░____________║░░░░░░░░ ║\n")
+    escreva("║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║\n")
+    escreva("║                                 -Truco Gauderio-1.0.0-                                        ║\n")
+    escreva("║                                    ♠ 1 - Jogar                                     |\\__/|     ║\n")
+    escreva("║                                      2 - Creditos ♥                               ( ^ - ^)    ║\n")
+    escreva("║                                     ♣3 - sair                                   \\  /   |      ║\n")
+    escreva("║                                              ♦                                   \\(  vv)      ║\n")
+    escreva("║                                                                                 ╔══════════╗  ║\n")
+    escreva("║                                                                                 ╚═╦═╦══╦═╦═╝  ║\n")
+    escreva("║                                                                                   ║ ║░▒║▓║    ║\n")
+    escreva("║                                                                                   ║ ║░▒║▓║    ║\n")
+    escreva("╚═══════════════════════════════════════════════════════════════════════════════════════════════╝\n")
     escreva("---------> ")
     leia(menu_inicial)
-      //Usei o escolha para direcionar o jogador a diferentes telas
-      escolha(menu_inicial){
-        caso 1:
-          limpa()
-          jogo_menu()
+    //Usei o escolha para direcionar o jogador a diferentes telas
+    escolha(menu_inicial){
+      caso "1":
+        limpa()
+        jogo_menu()
         pare
-        caso 2:
-          limpa()
-          escreva(" _______________________________________________________________________________________________ \n")
-          escreva("|###############################################################################################|\n")
-          escreva("|###############################################################################################|\n")
-          escreva("|############____   ____|####   ____|########  |#####  |###   _______|####   _______  |#########|\n")
-          escreva("|################  |#########  |####  |######  |#####  |###  |############  |#######  |#########|\n")
-          escreva("|################  |#########  |#### _|######  |#####  |###  |############  |#######  |#########|\n")
-          escreva("|################  |#########  |## _|########  |#####  |###  |############  |#######  |#########|\n")
-          escreva("|################  |#########  |####_ |######_ |#####  |###  |############  |#######  |#########|\n")
-          escreva("|################__|#########__|#####__|######________|####__________|####____________|#########|\n")
-          escreva("|###############################################################################################|\n")
-          escreva("|                                 -Truco Ga�derio-1.0.0-                                        |\n")
-          escreva("|                           > projetado por Gian Roso e Lorenzo Nied                 |\\__/|     |\n")
-          escreva("|                           > Codigo jogo: Lorenzo Nied                             ( ^ - ^)    |\n")
-          escreva("|                           > Graficos: Gian Roso                                 \\  /   |      |\n")
-          escreva("|                           > Codigo Pontua��o: Lorenzo Nied                       \\(  vv)      |\n")
-          escreva("|                           > Codigo menu: Gian Roso                              |TTTTTTTTTT|  |\n")
-          escreva("|                                                                                  \\_\\_|_//_/   |\n")
-          escreva("|                                                                                   |_|__|_|    |\n")
-          escreva("|                                                                                   |_|__|_|    |\n")
-          escreva("|===============================================================================================|\n")
-          escreva("Digite qualquer tecla para voltar: ")
-          leia(voltar)
-            escolha(voltar){
-              caso 1:
-                menu()
-              pare
-              caso contrario:
-                menu()
-              pare
-            }
+      caso "2":
+        limpa()
+        escreva("╔═══════════════════════════════════════════════════════════════════════════════════════════════╗\n")
+        escreva("║ █████████████████████████████████████████████████████████████████████████████████████████████ ║\n")
+        escreva("║ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ║\n")
+        escreva("║ ▓▓▓▓▓▓▓▓▓▓▓____  ╔════|▓▓▓▓  ╔════|▓▓▓▓▓▓▓▓  ║▓▓▓▓▓  ║▓▓▓  ╔═══════|▓▓▓▓  ╔═══════  ║▓▓▓▓▓▓▓▓ ║\n")
+        escreva("║ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓▓▓  ║▓▓▓▓  ║▓▓▓▓▓▓  ║▓▓▓▓▓  ║▓▓▓  ║▓▓▓▓▓▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓▓ ║\n")
+        escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒▒▒ _║▒▒▒▒▒▒  ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+        escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒ _║▒▒▒▒▒▒▒▒  ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+        escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒▒▒_ ║▒▒▒▒▒▒_ ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+        escreva("║ ░░░░░░░░░░░░░░░__║░░░░░░░░░__║░░░░░__║░░░░░░________║▒▒▒▒__________║░░░░____________║░░░░░░░░ ║\n")
+        escreva("║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║\n")
+        escreva("║                                 -Truco Gauderio-1.0.0-                                        ║\n")
+        escreva("║                           > projetado por Gian Roso e Lorenzo Nied                 |\\__/|     ║\n")
+        escreva("║                           > Codigo jogo: Lorenzo Nied                             ( ~ . ~)    ║\n")
+        escreva("║                           > Graficos: Gian Roso                                 \\  /   |      ║\n")
+        escreva("║                           > Codigo Pontuacao: Lorenzo Nied                       \\(  vv)      ║\n")
+        escreva("║                           > Codigo menu: Gian Roso                              ╔══════════╗  ║\n")
+        escreva("║                                                                                 ╚═╦═╦══╦═╦═╝  ║\n")
+        escreva("║                                                                                   ║ ║░▒║▓║    ║\n")
+        escreva("║                                                                                   ║ ║░▒║▓║    ║\n")
+        escreva("╚═══════════════════════════════════════════════════════════════════════════════════════════════╝\n")
+        escreva("Digite qualquer tecla para voltar: ")
+        leia(voltar)
+        escolha(voltar){
+          caso "1":
+            menu()
+            pare
+          caso contrario:
+            menu()
+            pare
+        }
         pare
-        caso 3:
-          limpa()
-          escreva(" ___________________  ")
-          escreva("\n|                   |")
-          escreva("\n|     |\\__/|      z |")
-          escreva("\n|    ( - . -) Z z   |")
-          escreva("\n|  \\  /   |         |")
-          escreva("\n|   \\(  vv)         |")
-          escreva("\n|   SAINDO......    |")
-          escreva("\n|___________________|")
+      caso "3":
+        limpa()
+        escreva("╔═══════════════════╗  ")
+        escreva("\n║                   ║")
+        escreva("\n║     |\\__/|      z ║")
+        escreva("\n║    ( - . -) Z z   ║")
+        escreva("\n║  \\  /   |         ║")
+        escreva("\n║   \\(  vv)         ║")
+        escreva("\n║   SAINDO......    ║")
+        escreva("\n╚═══════════════════╝")
         pare
         // ao inves de por um Loop complexo apenas usei o caso contrario para redirecionar a tela novamente
-        caso contrario:
-          menu()
+      caso contrario:
+        menu()
         pare
-        }
+    }
   }
-  //Essa fun��o apenas executa uma pergunta se quer continuar 
+  //Essa funï¿½ï¿½o apenas executa uma pergunta se quer continuar 
   funcao jogo_menu(){
     limpa()
-    escreva(" _______________________________________________________________________________________________ \n")
-    escreva("|###############################################################################################|\n")
-    escreva("|###############################################################################################|\n")
-    escreva("|############____   ____|####   ____|########  |#####  |###   _______|####   _______  |#########|\n")
-    escreva("|################  |#########  |####  |######  |#####  |###  |############  |#######  |#########|\n")
-    escreva("|################  |#########  |#### _|######  |#####  |###  |############  |#######  |#########|\n")
-    escreva("|################  |#########  |## _|########  |#####  |###  |############  |#######  |#########|\n")
-    escreva("|################  |#########  |####_ |######_ |#####  |###  |############  |#######  |#########|\n")
-    escreva("|################__|#########__|#####__|######________|####__________|####____________|#########|\n")
-    escreva("|###############################################################################################|\n")
-    escreva("|                                 -Truco Ga�derio-1.2.0-                                        |\n")
-    escreva("|                                       Iniciar?                                     |\\__/|     |\n")
-    escreva("|                                                                                   ( V ^ V)    |\n")
-    escreva("|                                        1-SIM                                    \\  /   |      |\n")
-    escreva("|                                        2-N�o                                     \\(  vv)      |\n")
-    escreva("|                                                                                 |TTTTTTTTTT|  |\n")
-    escreva("|                                                                                  \\_\\_|_//_/   |\n")
-    escreva("|                                                                                   |_|__|_|    |\n")
-    escreva("|                                                                                   |_|__|_|    |\n")
-    escreva("|===============================================================================================|\n")
+    escreva("╔═══════════════════════════════════════════════════════════════════════════════════════════════╗\n")
+    escreva("║ █████████████████████████████████████████████████████████████████████████████████████████████ ║\n")
+    escreva("║ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ║\n")
+    escreva("║ ▓▓▓▓▓▓▓▓▓▓▓____  ╔════|▓▓▓▓  ╔════|▓▓▓▓▓▓▓▓  ║▓▓▓▓▓  ║▓▓▓  ╔═══════|▓▓▓▓  ╔═══════  ║▓▓▓▓▓▓▓▓ ║\n")
+    escreva("║ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓▓▓  ║▓▓▓▓  ║▓▓▓▓▓▓  ║▓▓▓▓▓  ║▓▓▓  ║▓▓▓▓▓▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓  ║▓▓▓▓▓▓▓▓ ║\n")
+    escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒▒▒ _║▒▒▒▒▒▒  ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+    escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒ _║▒▒▒▒▒▒▒▒  ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+    escreva("║ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒▒  ║▒▒▒▒_ ║▒▒▒▒▒▒_ ║▒▒▒▒▒  ║▒▒▒  ║▒▒▒▒▒▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒  ║▒▒▒▒▒▒▒▒ ║\n")
+    escreva("║ ░░░░░░░░░░░░░░░__║░░░░░░░░░__║░░░░░__║░░░░░░________║▒▒▒▒__________║░░░░____________║░░░░░░░░ ║\n")
+    escreva("║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║\n")
+    escreva("║                                 -Truco Gauderio-1.0.0-                                        ║\n")
+    escreva("║                                       Iniciar?                                     |\\__/|     ║\n")
+    escreva("║                                                                                   ( V ^ V)    ║\n")
+    escreva("║                                        1-SIM                                    \\  /   |      ║\n")
+    escreva("║                                        2-NAO                                     \\(  vv)      ║\n")
+    escreva("║                                                                                 ╔══════════╗  ║\n")
+    escreva("║                                                                                 ╚═╦═╦══╦═╦═╝  ║\n")
+    escreva("║                                                                                   ║ ║░▒║▓║    ║\n")
+    escreva("║                                                                                   ║ ║░▒║▓║    ║\n")
+    escreva("╚═══════════════════════════════════════════════════════════════════════════════════════════════╝\n")
     escreva("---------> ")
     leia(continuar)
-      escolha(continuar){
-        caso 1:
-          partida()
+    escolha(continuar){
+      caso "1":
+        partida()
         pare
-        caso 2:
-          menu()
+      caso "2":
+        menu()
         pare
-        caso contrario:
-          jogo_menu()
+      caso contrario:
+        jogo_menu()
         pare
-      }
+    }
 
   }
   funcao partida(){
-    para(inteiro i = 0; i<2 ; i++){
-      rodada()
-      escreva(pontosP1,pontosP2)
+    inteiro loop = 1, numeroDe_Rodadas = 1
+    pontosPlayer1_Partida  = 0 
+    pontosPlayer2_Partida = 0
+    enquanto ( loop != 2){
+      rodada(numeroDe_Rodadas)
+      numeroDe_Rodadas++
+      se(pontosPlayer1_Partida == 2){
+        vitoria_P1()
+        retorne
+      } senao se(pontosPlayer2_Partida == 2){
+        vitoria_P2 ()
+        retorne
+      }
     }
   }
   funcao partida_jogo_inicio(){
     enquanto( indice < 3 ) {
-    limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                             "+mensagens[indice]+"                                                  |\n")
-    escreva("|                                                                              ______________   |\n")
-    escreva("|                                         ___                                 |      ___     |  |\n")
-    escreva("|                                 |______|___|______|                         |    _|___|_   |  |\n")
-    escreva("|                                       { "+olhos[indice]+" }                               |     (O=O)    |  |\n")
-    escreva("|                                       _\\ = / _                              |   __|\\ /|__  |  |\n")
-    escreva("|                                      /  ___   \\                             |______________|  |\n")
-    escreva("|                                    ___ |   | ___                                Jogador 1     |\n")
-    escreva("|                       ____________|___||___||___|_____________                                |\n")
-    escreva("|                      /                                        \\                               |\n")
-    escreva("|                     /                                          \\                              |\n")
-    escreva("|                    /                                            \\                             |\n")
-    escreva("|                   /   ______                                     \\                            |\n")
-    escreva("|                  /   /      |                                     \\                           |\n")
-    escreva("|                 /   /_______|                                      \\                          |\n")
-    escreva("|                /   |________|                                       \\                         |\n")
-    escreva("|               /                     ____________                     \\                        |\n")
-    escreva("|              /        ____________ |            | ____________        \\                       |\n")
-    escreva("|             /        |            ||            ||            |        \\                      |\n")
-    escreva("|            /         |            ||            ||            |         \\                     |\n")
-    escreva("|           /          |            ||            ||            |          \\                    |\n")
-    escreva("|          /           |            ||            ||            |           \\                   |\n")
-    escreva("|         /____________|            ||            ||            |____________\\                  |\n")
-    escreva("|        |_____________|            ||____________||            |____________|                  |\n")
-    escreva("|                      |____________|              |____________|                               |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
-      u.aguarde(3000)
+      limpa()
+      escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║                                             "+mensagens[indice]+"                                                  |\n")
+      escreva("║                                                                              ______________   ║\n")
+      escreva("║                                         ___                                 |      ___     |  ║\n")
+      escreva("║                                 |______|___|______|                         |    _|___|_   |  ║\n")
+      escreva("║                                       { "+olhos[indice]+" }                               |     (O=O)    |  ║\n")
+      escreva("║                                       _\\ = / _                              |   __|\\ /|__  |  ║\n")
+      escreva("║                                      /  ___   \\                             |______________|  ║\n")
+      escreva("║                                    ___ |   | ___                                Jogador 1     ║\n")
+      escreva("║                       ____________|___||___||___|_____________                                ║\n")
+      escreva("║                      /                                        \\                               ║\n")
+      escreva("║                     /                                          \\                              ║\n")
+      escreva("║                    /                                            \\                             ║\n")
+      escreva("║                   /   ______                                     \\                            ║\n")
+      escreva("║                  /   /      |                                     \\                           ║\n")
+      escreva("║                 /   /_______|                                      \\                          ║\n")
+      escreva("║                /   |________|                                       \\                         ║\n")
+      escreva("║               /                     ____________                     \\                        ║\n")
+      escreva("║              /        ____________ |            | ____________        \\                       ║\n")
+      escreva("║             /        |            ||            ||            |        \\                      ║\n")
+      escreva("║            /         |            ||            ||            |         \\                     ║\n")
+      escreva("║           /          |            ||            ||            |          \\                    ║\n")
+      escreva("║          /           |            ||            ||            |           \\                   ║\n")
+      escreva("║         /____________|            ||            ||            |____________\\                  ║\n")
+      escreva("║         \\____________|            ||____________||            |____________/                  ║\n")
+      escreva("║            \\   \\ \\   |____________|              |____________|   / /   /                     ║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+      u.aguarde(1500)
       contagem++
-      // o indice serve para rastrear a variavel mensagem e trocala ao inves de escrever mais uma ao lado
       indice++
     }
   }
   //funcao da rodada, embaralhar cartas e somar pontos para partida.
-  funcao rodada (){
-    inteiro jogador1, jogador2, rodada = 1
-    jogador1 = 0
-    jogador2 = 0
+  funcao rodada (inteiro numeroDe_Rodadas){
+    inteiro ultimaCarta = 40
+    inteiro pontosPlayer1_jogada, pontosPlayer2_jogada
+    pontosPlayer1_jogada = 0
+    pontosPlayer2_jogada = 0
     partida_jogo_inicio()
     sortearCartas (maoJogador1)
     sortearCartas (maoJogador2)
 
     para(inteiro i = 3; i>0 ; i--){
-      //jogador1_partidas(maoJogador1, i)
-      inteiro cartaDigitada1 = escolherCarta(maoJogador1, i)
-      jogador2_partidas(maoJogador2, i)
-      inteiro cartaDigitada2 = escolherCarta(maoJogador2)
+      inteiro cartaDigitada1 = escolherCarta(maoJogador1, i, ultimaCarta, pontosPlayer1_jogada, pontosPlayer2_jogada, numeroDe_Rodadas)
+      ultimaCarta = cartaDigitada1
+      inteiro cartaDigitada2 = escolherCarta(maoJogador2, i, ultimaCarta, pontosPlayer1_jogada, pontosPlayer2_jogada, numeroDe_Rodadas)
+      ultimaCarta = cartaDigitada2
       
       se(cartaDigitada1 < cartaDigitada2){
-        jogador1++
+        pontosPlayer1_jogada++
       } senao {
-        jogador2++
+        pontosPlayer2_jogada++
       }
-      escreva(jogador1)
-      escreva(jogador2)
-      se(jogador1 == 2){
-        pontosP1++
+      se(pontosPlayer1_jogada == 2){
+        vitoriarodadaP1()
+        pontosPlayer1_Partida++
         retorne
-      }senao se(jogador2 == 2){
-        pontosP2++
+      }senao se(pontosPlayer2_jogada == 2){
+        vitoriarodadaP2()
+        pontosPlayer2_Partida++
         retorne
       }  
     } 
   }
-  //fun��o para distribui��o de cartas para cada jogador, sem distribuir cartas j� na m�o. 
+  //funï¿½ï¿½o para distribuiï¿½ï¿½o de cartas para cada jogador, sem distribuir cartas jï¿½ na mï¿½o. 
   funcao sortearCartas (inteiro maoJogador1funcao[]){
     inteiro valor_sorteado
     para(inteiro i = 0; i<3 ; i++){
@@ -270,12 +282,17 @@ programa {
       }
     }
   }
-  // Fun��o de verifica��o se a carta jogada esta na m�o do jogador ou se existe. 
-  funcao inteiro escolherCarta(inteiro cartasJogador[], inteiro x){
+  // Funï¿½ï¿½o de verificaï¿½ï¿½o se a carta jogada esta na mï¿½o do jogador ou se existe. 
+  funcao inteiro escolherCarta(inteiro cartasJogador[], inteiro x, inteiro ultimaCarta,inteiro pontosPlayer1_jogada,inteiro pontosPlayer2_jogada,inteiro rodada){
     inteiro loop = 1
     cadeia digitarCarta
     faca{
-      jogador1_partidas(maoJogador1, x)
+      se(maoJogador1[0] == cartasJogador[0]){
+        jogador1_partidas(cartasJogador, x, ultimaCarta, pontosPlayer1_jogada, pontosPlayer2_jogada, rodada)
+      } senao {
+        jogador2_partidas(cartasJogador, x, ultimaCarta, pontosPlayer1_jogada, pontosPlayer2_jogada, rodada)
+      }
+      escreva("escreva sua carta ---->\t")
       leia (digitarCarta)
       para(inteiro i = 0; i<3; i++){
         se(digitarCarta == baralho[cartasJogador[i]]){
@@ -289,7 +306,7 @@ programa {
   }
   // Nessa parte utilizei o cronometro para aparecer as mensagens anotadas no programa, assim a cada 3000s ela muda a mensagem sem trocar a tela
   // essas funcao a seguir sao as jogadas de cada jogador sendo dividida entre jogada 1, 2 e 3 cada jogada possui sua tela de jogador
-  funcao jogador1_partidas(inteiro maoDoJogador[], inteiro x){
+  funcao jogador1_partidas(inteiro maoDoJogador[], inteiro x, inteiro ultimaCarta,inteiro pontosPlayer1_jogada,inteiro pontosPlayer2_jogada, inteiro rodada){
      inteiro locacao[x], y = 0
       para(inteiro i = 0; i<3; i++){
         se(ocupacaoCarta[maoDoJogador[i]] == verdadeiro){
@@ -298,108 +315,108 @@ programa {
         }
       }
     se(x == 3){
-     limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    |_RODADA__1_|                                              |\n")
-    escreva("|                                                                              ______________   |\n")
-    escreva("|                                         ___                                 |      ___     |  |\n")
-    escreva("|                                 |______|___|______|                         |    _|___|_   |  |\n")
-    escreva("|                                       { - - }                               |     (O=O)    |  |\n")
-    escreva("|                                       _\\ = /_                               |   __|\\ /|__  |  |\n")
-    escreva("|                                      /  ___  \\                              |______________|  |\n")
-    escreva("|                                    ___ |   | ___                                Jogador 1     |\n")
-    escreva("|                       ____________|___||___||___|_____________                  Coconut-Man   |\n")
-    escreva("|                      /                                        \\                               |\n")
-    escreva("|                     /                                          \\            _________________ |\n")
-    escreva("|                    /                                            \\          |__SCORE__|___ ___||\n")
-    escreva("|                   /   ______                                     \\         |                 ||\n")
-    escreva("|                  /   /      |                                     \\        |                 ||\n")
-    escreva("|                 /   /_______|                                      \\       |                 ||\n")
-    escreva("|                /   |________|                                       \\      |                 ||\n")
-    escreva("|               /                     ____________                     \\     |                 ||\n")
-    escreva("|              /        ____________ |            | ____________        \\    |                 ||\n")
-    escreva("|             /        |            ||            ||            |        \\   |                 ||\n")
-    escreva("|            /         |            ||            ||            |         \\  |                 ||\n")
-    escreva("|           /          |            ||            ||            |          \\ |_________________||\n")
-    escreva("|          /           |",baralho[locacao[0]]," ",baralho[maoJogador1[1]],"  ",baralho[maoJogador1[2]]," \n")
-    escreva("|         /____________|            ||            ||            |____________\\                  |\n")
-    escreva("|         \\____________|            ||____________||            |____________/                  |\n")
-    escreva("|            \\   \\ \\   |____________|              |____________|   / /   /                     |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
+      limpa()
+      escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║                                    |_Rodada_",rodada,"_|                                               ║\n")
+      escreva("║      Poncho-Man                                                              ______________   ║\n")
+      escreva("║      Ponto Rodada = ",pontosPlayer2_jogada,"                   ___                                 |      ___     |  ║\n")
+      escreva("║                                 |______|___|______|                         |    _|___|_   |  ║\n")
+      escreva("║                                       { - - }                               |     (O=O)    |  ║\n")
+      escreva("║                                       _\\ = /_                               |   __|\\ /|__  |  ║\n")
+      escreva("║                                      /  ___  \\                              |______________|  ║\n")
+      escreva("║                                    ___ |   | ___                                Jogador 1     ║\n")
+      escreva("║                       ____________|___||___||___|_____________                  Coconut-Man   ║\n")
+      escreva("║               |\\__/| /                                        \\       Ponto Rodada = ",pontosPlayer1_jogada,"        ║\n")
+      escreva("║               (^-^ )/                                          \\            _________________ ║\n")
+      escreva("║                \\   /                                            \\          |______SCORE______|║\n")
+      escreva("║                 \\ /   ______                                     \\         |                 |║\n")
+      escreva("║                 S/   /      |                                     \\        |                 |║\n")
+      escreva("║                 /   /_______|                                      \\       |Ultima carta:    |║\n")
+      escreva("║                /   |________|                                       \\      | ",baralho[ultimaCarta],"\n")
+      escreva("║               /                     ____________                     \\     |Coconut-Man Pont:|║\n")
+      escreva("║              /        ____________ |            | ____________        \\    |       ",pontosPlayer1_jogada,"         |║\n")
+      escreva("║             /        |            ||            ||            |        \\   |LongHat-Man Pont:|║\n")
+      escreva("║            /         |            ||            ||            |         \\  |       ",pontosPlayer2_jogada,"         |║\n")
+      escreva("║           /          |            ||            ||            |          \\ |_________________|║\n")
+      escreva("║          /           |",baralho[locacao[0]],"   ",baralho[locacao[1]],"    ",baralho[locacao[2]]," \n")
+      escreva("║         /____________|            ||            ||            |____________\\                  ║\n")
+      escreva("║         \\____________|            ||____________||            |____________/                  ║\n")
+      escreva("║            \\   \\ \\   |____________|              |____________|   / /   /                     ║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
     }
     ////////////////////////// seguda partida
     senao se(x == 2){
-    limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    |_RODADA__2_|                                              |\n")
-    escreva("|                                                                              ______________   |\n")
-    escreva("|                                         ___                                 |      ___     |  |\n")
-    escreva("|                                 |______|___|______|                         |    _|___|_   |  |\n")
-    escreva("|                                       { - - }                               |     (O=O)    |  |\n")
-    escreva("|                                       _\\ = /_                               |   __|\\ /|__  |  |\n")
-    escreva("|                                      /       \\                              |______________|  |\n")
-    escreva("|                                       ___  ___                                  Jogador 1     |\n")
-    escreva("|                       _______________|___||___|_______________                  Coconut-Man   |\n")
-    escreva("|                      /                                        \\                               |\n")
-    escreva("|                     /                                          \\            _________________ |\n")
-    escreva("|                    /                                            \\          |__SCORE__|___ ___||\n")
-    escreva("|                   /   ______            ____                     \\         |                 ||\n")
-    escreva("|                  /   /      |          /    \\                     \\        |                 ||\n")
-    escreva("|                 /   /_______|         /______\\                     \\       |                 ||\n")
-    escreva("|                /   |________|                                       \\      |                 ||\n")
-    escreva("|               /              ____________  ____________              \\     |                 ||\n")
-    escreva("|              /              |            ||            |              \\    |                 ||\n")
-    escreva("|             /               |            ||            |               \\   |                 ||\n")
-    escreva("|            /                |            ||            |                \\  |                 ||\n")
-    escreva("|           /                 |            ||            |                 \\ |_________________||\n")
-    escreva("|          /                  |            ||            |                  \\                   |\n")
-    escreva("|         /___________________|            ||            |___________________\\                  |\n")
-    escreva("|         \\___________________|____________||____________|___________________/                  |\n")
-    escreva("|            \\   \\ \\                                                / /   /                     |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
+      limpa()
+      escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║                                    |_Rodada_",rodada,"_|                                               ║\n")
+      escreva("║         Poncho-Man                                                           ______________   ║\n")
+      escreva("║         Ponto Rodada = ",pontosPlayer2_Partida,"                ___                                 |      ___     |  ║\n")
+      escreva("║                                 |______|___|______|                         |    _|___|_   |  ║\n")
+      escreva("║                                       { - - }                               |     (O=O)    |  ║\n")
+      escreva("║                                       _\\ = /_                               |   __|\\ /|__  |  ║\n")
+      escreva("║                                      /       \\                              |______________|  ║\n")
+      escreva("║                                       ___  ___                                  Jogador 1     ║\n")
+      escreva("║                       _______________|___||___|_______________                  Coconut-Man   ║\n")
+      escreva("║                      /                                        \\       Ponto Rodada = ",pontosPlayer1_Partida,"        ║\n")
+      escreva("║                     /                                          \\            _________________ ║\n")
+      escreva("║                    /                                            \\          |______SCORE______|║\n")
+      escreva("║                   /   ______            ____                     \\         |                 |║\n")
+      escreva("║                  /   /      |          /    \\                     \\        |                 |║\n")
+      escreva("║                 /   /_______|         /______\\                     \\       |Ultima carta:    |║\n")
+      escreva("║                /   |________|                                       \\      | ",baralho[ultimaCarta],"\n")
+      escreva("║               /              ____________  ____________              \\     |Coconut-Man Pont:|║\n")
+      escreva("║              /              |            ||            |              \\    |       ",pontosPlayer1_jogada,"         |║\n")
+      escreva("║             /               |            ||            |               \\   |LongHat-Man Pont:|║\n")
+      escreva("║            /                |            ||            |                \\  |       ",pontosPlayer2_jogada,"         |║\n")
+      escreva("║           /                 |            ||            |                 \\ |_________________|║\n")
+      escreva("║          /                  |",baralho[locacao[0]],"   ",baralho[locacao[1]],"\n")
+      escreva("║         /___________________|            ||            |___________________\\                  ║\n")
+      escreva("║         \\___________________|____________||____________|___________________/                  ║\n")
+      escreva("║            \\   \\ \\                                                / /   /                     ║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
     }
     /////////////////////////Partida 3
     senao se(x == 1){
-    limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    |_RODADA__3_|                                              |\n")
-    escreva("|                                                                              ______________   |\n")
-    escreva("|                                         ___                                 |      ___     |  |\n")
-    escreva("|                                 |______|___|______|                         |    _|___|_   |  |\n")
-    escreva("|                                       { - - }                               |     (O=O)    |  |\n")
-    escreva("|                                       _\\ = /_                               |   __|\\ /|__  |  |\n")
-    escreva("|                                      /       \\                              |______________|  |\n")
-    escreva("|                                         ___                                    Jogador 1      |\n")
-    escreva("|                       _________________|___|__________________                 Coconut-Man    |\n")
-    escreva("|                      /                                        \\                               |\n")
-    escreva("|                     /                                          \\            _________________ |\n")
-    escreva("|                    /                                            \\          |__SCORE__|___ ___||\n")
-    escreva("|                   /   ______            ____                     \\         |                 ||\n")
-    escreva("|                  /   /      |          /    \\                     \\        |                 ||\n")
-    escreva("|                 /   /_______|         /______\\                     \\       |                 ||\n")
-    escreva("|                /   |________|                                       \\      |                 ||\n")
-    escreva("|               /                     ____________                     \\     |                 ||\n")
-    escreva("|              /                     |            |                     \\    |                 ||\n")
-    escreva("|             /                      |            |                      \\   |                 ||\n")
-    escreva("|            /                       |            |                       \\  |                 ||\n")
-    escreva("|           /                        |            |                        \\ |_________________||\n")
-    escreva("|          /                         |            |                         \\                   |\n")
-    escreva("|         /__________________________|            |__________________________\\                  |\n")
-    escreva("|         \\__________________________|____________|__________________________/                  |\n")
-    escreva("|            \\   \\ \\                                                / /   /                     |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
+      limpa()
+      escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║                                    |_Rodada_",rodada,"_|                                               ║\n")
+      escreva("║         Poncho-Man                                                           ______________   ║\n")
+      escreva("║         Ponto Rodada = ",pontosPlayer2_Partida,"                ___                                 |      ___     |  ║\n")
+      escreva("║                                 |______|___|______|                         |    _|___|_   |  ║\n")
+      escreva("║                                       { - - }                               |     (O=O)    |  ║\n")
+      escreva("║                                       _\\ = /_                               |   __|\\ /|__  |  ║\n")
+      escreva("║                                      /       \\        |\\__/|                |______________|  ║\n")
+      escreva("║                                         ___           (_ O.O)                  Jogador 1      ║\n")
+      escreva("║                       _________________|___|___________/   |S_                 Coconut-Man    ║\n")
+      escreva("║                      /                                (_2vv)  \\       Ponto Rodada = ",pontosPlayer1_Partida,"        ║\n")
+      escreva("║                     /                                          \\            _________________ ║\n")
+      escreva("║                    /                                            \\          |______SCORE______|║\n")
+      escreva("║                   /   ______            ____                     \\         |                 |║\n")
+      escreva("║                  /   /      |          /    \\                     \\        |                 |║\n")
+      escreva("║                 /   /_______|         /______\\                     \\       |Ultima carta:    |║\n")
+      escreva("║                /   |________|                                       \\      | ",baralho[ultimaCarta],"\n")
+      escreva("║               /                     ____________                     \\     |Coconut-Man Pont:|║\n")
+      escreva("║              /                     |            |                     \\    |       ",pontosPlayer1_jogada,"         |║\n")
+      escreva("║             /                      |            |                      \\   |LongHat-Man Pont:|║\n")
+      escreva("║            /                       |            |                       \\  |       ",pontosPlayer2_jogada,"         |║\n")
+      escreva("║           /                        |            |                        \\ |_________________|║\n")
+      escreva("║          /                         |",baralho[locacao[0]],"\n")
+      escreva("║         /__________________________|            |__________________________\\                  ║\n")
+      escreva("║         \\__________________________|____________|__________________________/                  ║\n")
+      escreva("║            \\   \\ \\                                                / /   /                     ║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
     }
+  retorne
   }
   
-
 ////// Telas jogadores
-  funcao jogador2_partidas(inteiro maoDoJogador[], inteiro x){
+  funcao jogador2_partidas(inteiro maoDoJogador[], inteiro x, inteiro ultimaCarta,inteiro pontosPlayer1_jogada,inteiro pontosPlayer2_jogada,inteiro rodada){
     inteiro locacao[x], y = 0
       para(inteiro i = 0; i<3; i++){
         se(ocupacaoCarta[maoDoJogador[i]] == verdadeiro){
@@ -407,210 +424,270 @@ programa {
           y++
         }
       }
-    limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    |_RODADA__1_|                                              |\n")
-    escreva("|                                                                              ______________   |\n")
-    escreva("|                                         ___                                 |      ___     |  |\n")
-    escreva("|                                       _|___|_                               ||____|___|___||  |\n")
-    escreva("|                                        (O=O)                                |    { - - }   |  |\n")
-    escreva("|                                      __|\\ /|__                              |   __\\ = /__  |  |\n")
-    escreva("|                                     /         \\                             |______________|  |\n")
-    escreva("|                                       ___  ___                                  Jogador 2     |\n")
-    escreva("|                       _______________|___||___|_______________                  Long-Hat-Man  |\n")
-    escreva("|                      /                                        \\                               |\n")
-    escreva("|                     /                                          \\            _________________ |\n")
-    escreva("|                    /                                            \\          |__SCORE__|___ ___||\n")
-    escreva("|                   /   ______            ____                     \\         |                 ||\n")
-    escreva("|                  /   /      |          /    \\                     \\        |                 ||\n")
-    escreva("|                 /   /_______|         /______\\                     \\       |                 ||\n")
-    escreva("|                /   |________|                                       \\      |                 ||\n")
-    escreva("|               /                     ____________                     \\     |                 ||\n")
-    escreva("|              /        ____________ |            | ____________        \\    |                 ||\n")
-    escreva("|             /        |            ||            ||            |        \\   |                 ||\n")
-    escreva("|            /         |            ||            ||            |         \\  |                 ||\n")
-    escreva("|           /          |            ||            ||            |          \\ |_________________||\n")
-    escreva("|          /           |",baralho[maoJogador2[0]]," ",baralho[maoJogador2[1]],"  ",baralho[maoJogador2[2]]," \n")
-    escreva("|         /____________|            ||            ||            |____________\\                  |\n")
-    escreva("|         \\____________|            ||____________||            |____________/                  |\n")
-    escreva("|            \\   \\ \\   |____________|              |____________|   / /   /                     |\n")
-    escreva("|===============================================================================================|\n")
+    se(x == 3){
+      limpa()
+      escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║                                    |_Rodada_",rodada,"_|                                               ║\n")
+      escreva("║         Coconut-Man                                                          ______________   ║\n")
+      escreva("║         Ponto Rodada = ",pontosPlayer1_jogada,"                ___                                 |      ___     |  ║\n")
+      escreva("║                                       _|___|_                               ||____|___|___||  ║\n")
+      escreva("║                           _            (O=O)                                |    { - - }   |  ║\n")
+      escreva("║                         _|_|_        __|\\ /|__                              |   __\\ = /__  |  ║\n")
+      escreva("║                          |..        /         \\                             |______________|  ║\n")
+      escreva("║                         _|_|_         ___  ___                                  Jogador 2     ║\n")
+      escreva("║                       _|_ ___|_______|___||___|_______________                  Poncho-Man    ║\n")
+      escreva("║                      /  \\___/                                 \\       Ponto Rodada = ",pontosPlayer2_jogada,"        ║\n")
+      escreva("║                     /                                          \\            _________________ ║\n")
+      escreva("║                    /                                            \\          |______SCORE______|║\n")
+      escreva("║                   /   ______            ____                     \\         |                 |║\n")
+      escreva("║                  /   /      |          /    \\                     \\        |                 |║\n")
+      escreva("║                 /   /_______|         /______\\                     \\       |Ultima carta:    |║\n")
+      escreva("║                /   |________|                                       \\      | ",baralho[ultimaCarta],"\n")
+      escreva("║               /                     ____________                     \\     |Coconut-Man Pont:|║\n")
+      escreva("║              /        ____________ |            | ____________        \\    |       ",pontosPlayer1_jogada,"         |║\n")
+      escreva("║             /        |            ||            ||            |        \\   |LongHat-Man Pont:|║\n")
+      escreva("║            /         |            ||            ||            |         \\  |       ",pontosPlayer2_jogada,"         |║\n")
+      escreva("║           /          |            ||            ||            |          \\ |_________________|║\n")
+      escreva("║          /           |",baralho[locacao[0]],"    ",baralho[locacao[1]],"    ",baralho[locacao[2]]," \n")
+      escreva("║         /____________|            ||            ||            |____________\\                  ║\n")
+      escreva("║         \\____________|            ||____________||            |____________/                  ║\n")
+      escreva("║            \\   \\ \\   |____________|              |____________|   / /   /                     ║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+    }
     ////////////////////////// partida 2
-    limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    |_RODADA__2_|                                              |\n")
-    escreva("|                                                                              ______________   |\n")
-    escreva("|                                         ___                                 |      ___     |  |\n")
-    escreva("|                                       _|___|_                               ||____|___|___||  |\n")
-    escreva("|                                        (O=O)                                |    { - - }   |  |\n")
-    escreva("|                                      __|\\ /|__                              |   __\\ = /__  |  |\n")
-    escreva("|                                     /         \\                             |______________|  |\n")
-    escreva("|                                         ___                                     Jogador 2     |\n")
-    escreva("|                       _________________|___|__________________                  Long-Hat-Man  |\n")
-    escreva("|                      /                                        \\                               |\n")
-    escreva("|                     /                                          \\            _________________ |\n")
-    escreva("|                    /                                            \\          |__SCORE__|___ ___||\n")
-    escreva("|                   /   ______            ____                     \\         |                 ||\n")
-    escreva("|                  /   /      |          /    \\                     \\        |                 ||\n")
-    escreva("|                 /   /_______|         /______\\                     \\       |                 ||\n")
-    escreva("|                /   |________|                                       \\      |                 ||\n")
-    escreva("|               /              ____________  ____________              \\     |                 ||\n")
-    escreva("|              /              |            ||            |              \\    |                 ||\n")
-    escreva("|             /               |            ||            |               \\   |                 ||\n")
-    escreva("|            /                |            ||            |                \\  |                 ||\n")
-    escreva("|           /                 |            ||            |                 \\ |_________________||\n")
-    escreva("|          /                  |            ||            |                  \\                   |\n")
-    escreva("|         /___________________|            ||            |___________________\\                  |\n")
-    escreva("|         \\___________________|____________||____________|___________________/                  |\n")
-    escreva("|            \\   \\ \\                                                / /   /                     |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
+    senao se(x == 2){
+      limpa()
+      escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║                                    |_Rodada_",rodada,"_|                                               ║\n")
+      escreva("║         Coconut-Man                                                          ______________   ║\n")
+      escreva("║         Ponto Rodada = ",pontosPlayer1_jogada,"                ___                                 |      ___     |  ║\n")
+      escreva("║                                       _|___|_                               ||____|___|___||  ║\n")
+      escreva("║                                        (O=O)                                |    { - - }   |  ║\n")
+      escreva("║                                      __|\\ /|__                              |   __\\ = /__  |  ║\n")
+      escreva("║                                     /         \\                             |______________|  ║\n")
+      escreva("║                                         ___                                     Jogador 2     ║\n")
+      escreva("║                       _________________|___|__________________                  Poncho-Man    ║\n")
+      escreva("║                      /   ______ ===========________           \\       Ponto Rodada = ",pontosPlayer2_jogada,"        ║\n")
+      escreva("║                     /   /__----/_/º==\\_\\°°°°°°°°°              \\            _________________ ║\n")
+      escreva("║                    /                                            \\          |______SCORE______|║\n")
+      escreva("║                   /   ______            ____                     \\         |                 |║\n")
+      escreva("║                  /   /      |          /    \\                     \\        |                 |║\n")
+      escreva("║                 /   /_______|         /______\\                     \\       |Ultima carta:    |║\n")
+      escreva("║                /   |________|                                       \\      | ",baralho[ultimaCarta],"\n")
+      escreva("║               /              ____________  ____________              \\     |Coconut-Man Pont:|║\n")
+      escreva("║              /              |            ||            |              \\    |       ",pontosPlayer1_jogada,"         |║\n")
+      escreva("║             /               |            ||            |               \\   |LongHat-Man Pont:|║\n")
+      escreva("║            /                |            ||            |                \\  |       ",pontosPlayer2_jogada,"         |║\n")
+      escreva("║           /                 |            ||            |                 \\ |_________________|║\n")
+      escreva("║          /                  |",baralho[locacao[0]],"   ",baralho[locacao[1]],"\n")
+      escreva("║         /___________________|            ||            |___________________\\                  ║\n")
+      escreva("║         \\___________________|____________||____________|___________________/                  ║\n")
+      escreva("║            \\   \\ \\                                                / /   /                     ║\n")
+      escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+      escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+    }
   //////////////////////////////// Partida 3
+    senao se(x == 1){
     limpa()
-     escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    |_RODADA__3_|                                              |\n")
-     escreva("|                                                                              ______________   |\n")
-    escreva("|                                         ___                                 |      ___     |  |\n")
-    escreva("|                                       _|___|_                               ||____|___|___||  |\n")
-    escreva("|                                        (O=O)                                |    { - - }   |  |\n")
-    escreva("|                                      __|\\ /|__                              |   __\\ = /__  |  |\n")
-    escreva("|                                     /         \\                             |______________|  |\n")
-    escreva("|                                                                                 Jogador 1     |\n")
-    escreva("|                       ________________________________________                  Long-Hat-Man  |\n")
-    escreva("|                      /                                        \\                               |\n")
-    escreva("|                     /                                          \\            _________________ |\n")
-    escreva("|                    /                                            \\          |__SCORE__|___ ___||\n")
-    escreva("|                   /   ______            ____                     \\         |                 ||\n")
-    escreva("|                  /   /      |          /    \\                     \\        |                 ||\n")
-    escreva("|                 /   /_______|         /______\\                     \\       |                 ||\n")
-    escreva("|                /   |________|                                       \\      |                 ||\n")
-    escreva("|               /                     ____________                     \\     |                 ||\n")
-    escreva("|              /                     |            |                     \\    |                 ||\n")
-    escreva("|             /                      |            |                      \\   |                 ||\n")
-    escreva("|            /                       |            |                       \\  |                 ||\n")
-    escreva("|           /                        |            |                        \\ |_________________||\n")
-    escreva("|          /                         |            |                         \\                   |\n")
-    escreva("|         /__________________________|            |__________________________\\                  |\n")
-    escreva("|         \\__________________________|____________|__________________________/                  |\n")
-    escreva("|            \\   \\ \\                                                / /   /                     |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║                                    |_Rodada_",rodada,"_|                                               ║\n")
+    escreva("║         Coconut-Man                                                          ______________   ║\n")
+    escreva("║         Ponto Rodada = ",pontosPlayer2_jogada,"                ___                                 |      ___     |  ║\n")
+    escreva("║                                       _|___|_                               ||____|___|___||  ║\n")
+    escreva("║                                        (O=O)                                |    { - - }   |  ║\n")
+    escreva("║                                      __|\\ /|__                              |   __\\ = /__  |  ║\n")
+    escreva("║                                     /         \\                             |______________|  ║\n")
+    escreva("║                                                                                 Jogador 1     ║\n")
+    escreva("║                       ________________________________________                  Poncho-Man    ║\n")
+    escreva("║                      /                                        \\       Ponto Rodada = ",pontosPlayer2_jogada,"        ║\n")
+    escreva("║                     /                                          \\            _________________ ║\n")
+    escreva("║                    /                                            \\          |______SCORE______|║\n")
+    escreva("║                   /   ______            ____                     \\         |                 |║\n")
+    escreva("║                  /   /      |          /    \\                     \\        |                 |║\n")
+    escreva("║                 /   /_______|         /______\\                     \\       |Ultima carta:    |║\n")
+    escreva("║                /   |________|                                       \\      | ",baralho[ultimaCarta],"\n")
+    escreva("║               /                     ____________                     \\     |Coconut-Man Pont:|║\n")
+    escreva("║              /                     |            |                     \\    |       ",pontosPlayer1_jogada,"         |║\n")
+    escreva("║             /                      |            |                      \\   |LongHat-Man Pont:|║\n")
+    escreva("║            /                       |            |                       \\  |       ",pontosPlayer2_jogada,"         |║\n")
+    escreva("║           /                        |            |                        \\ |_________________|║\n")
+    escreva("║          /                         |",baralho[locacao[0]],"\n")
+    escreva("║         /__________________________|            |__________________________\\                  ║\n")
+    escreva("║         \\__________________________|____________|__________________________/                  ║\n")
+    escreva("║            \\   \\ \\                                                / /   /                     ║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+    }
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //////// telas finais
- funcao animacao_final(){
-  limpa()
-  escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    |_RODADA__Win_|                                            |\n")
-    escreva("|                                                                              ______________   |\n")
-    escreva("|                                         ___                                 |      ___     |  |\n")
-    escreva("|                                 |______|___|______|                         |    _|___|_   |  |\n")
-    escreva("|                                       { - - }                               |     (O=O)    |  |\n")
-    escreva("|                                       _\\ = /_                               |   __|\\ /|__  |  |\n")
-    escreva("|                                      /       \\                              |______________|  |\n")
-    escreva("|                                                                                 Jogador 1     |\n")
-    escreva("|                       ________________________________________                  Coconut-Man   |\n")
-    escreva("|                      /                                        \\                               |\n")
-    escreva("|                     /                                          \\            _________________ |\n")
-    escreva("|                    /                                            \\          |__SCORE__|___ ___||\n")
-    escreva("|                   /   ______            ____                     \\         |                 ||\n")
-    escreva("|                  /   /      |          /    \\                     \\        |                 ||\n")
-    escreva("|                 /   /_______|         /______\\                     \\       |                 ||\n")
-    escreva("|                /   |________|                                       \\      |                 ||\n")
-    escreva("|               /                                                      \\     |                 ||\n")
-    escreva("|              /                                                        \\    |                 ||\n")
-    escreva("|             /                                                          \\   |                 ||\n")
-    escreva("|            /                                                            \\  |                 ||\n")
-    escreva("|           /                                                              \\ |_________________||\n")
-    escreva("|          /                                                                \\                   |\n")
-    escreva("|         /__________________________________________________________________\\                  |\n")
-    escreva("|         \\__________________________________________________________________/                  |\n")
-    escreva("|            \\   \\ \\                                                / /   /                     |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
- }
- funcao vitoria(){
+  funcao vitoriarodadaP1(){
     limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    ____________________                                       |\n")
-    escreva("|                                   /                    \\                                      |\n")
-    escreva("|                                  |                      |                                     |\n")
-    escreva("|                                  |                      |                                     |\n")
-    escreva("|                            __    |                      |    __                               |\n")
-    escreva("|                           |  \\___|______________________|___/  |                              |\n")
-    escreva("|                           \\____________________________________/                              |\n")
-    escreva("|                                 ||          ___          ||                                   |\n")
-    escreva("|                                 ||        _|___|_        ||                                   |\n")
-    escreva("|                                 ||         (O=O)         ||                                   |\n")
-    escreva("|                                 ||       __|\\ /|__       ||                                   |\n")
-    escreva("|                                 ||                       ||                                   |\n")
-    escreva("|                                 ||______________________/ |                                   |\n")
-    escreva("|                                 |______ Coconut-Man ______|                                   |\n")
-    escreva("|              |==============================================================|                 |\n")
-    escreva("|              |   _         __         _     ________          __     __     |                 |\n")
-    escreva("|              |  \\  \\     /    \\     /  /      |  |          /   |   / /     |                 |\n")
-    escreva("|              |   \\  \\   /  /\\  \\   /  /       |  |         / /| |  / /      |                 |\n")
-    escreva("|              |    \\  \\_/  /  \\  \\_/  /        |  |        / / | |_/ /       |                 |\n")
-    escreva("|              |     \\_____/    \\_____/       __|__|__     /_/  |____/        |                 |\n")
-    escreva("|              |==============================================================|                 |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                Digite 1 para continuar                                        |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
-    leia(voltar)
-
-    limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|                                    ____________________                                       |\n")
-    escreva("|                                   /                    \\                                      |\n")
-    escreva("|               _                  |                      |                   _                 |\n")
-    escreva("|              | \\                 |                      |                  / |                |\n")
-    escreva("|              |  \\                |                      |                 /  |                |\n")
-    escreva("|              |   \\_______________|______________________|________________/   |                |\n")
-    escreva("|              \\_______________________________________________________________/                |\n")
-    escreva("|                                 ||          ___          ||                                   |\n")
-    escreva("|                                 ||    |____|___|___|     ||                                   |\n")
-    escreva("|                                 ||        { - - }        ||                                   |\n")
-    escreva("|                                 ||       __\\ = /__       ||                                   |\n")
-    escreva("|                                 ||                       ||                                   |\n")
-    escreva("|                                 ||______________________/ |                                   |\n")
-    escreva("|                                 |_____ Long-Hat-Man ______|                                   |\n")
-    escreva("|              |==============================================================|                 |\n")
-    escreva("|              |   _         __         _     ________          __     __     |                 |\n")
-    escreva("|              |  \\  \\     /    \\     /  /      |  |          /   |   / /     |                 |\n")
-    escreva("|              |   \\  \\   /  /\\  \\   /  /       |  |         / /| |  / /      |                 |\n")
-    escreva("|              |    \\  \\_/  /  \\  \\_/  /        |  |        / / | |_/ /       |                 |\n")
-    escreva("|              |     \\_____/    \\_____/       __|__|__     /_/  |____/        |                 |\n")
-    escreva("|              |==============================================================|                 |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|                                                                                               |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║                                    |_RODADA__Win_|                                            ║\n")
+    escreva("║                                                                              ______________   ║\n")
+    escreva("║                                         ___                                 |      ___     |  ║\n")
+    escreva("║                                 |______|___|______|                         |    _|___|_   |  ║\n")
+    escreva("║                     ______________    { º º }                               |     (v=v)    |  ║\n")
+    escreva("║                    |              7   _\\ = /_                               |   __|\\ /|__  |  ║\n")
+    escreva("║                    |   J#gu##a    |  /       \\                              |______________|  ║\n")
+    escreva("║                    |______________|                                             Jogador 1     ║\n")
+    escreva("║                       ________________________________________                  Coconut-Man   ║\n")
+    escreva("║                      /                                        \\                               ║\n")
+    escreva("║                     /                                          \\                              ║\n")
+    escreva("║                    /                                            \\                             ║\n")
+    escreva("║                   /   ______            ____                     \\                            ║\n")
+    escreva("║                  /   /      |          /    \\                     \\                           ║\n")
+    escreva("║                 /   /_______|         /______\\                     \\                          ║\n")
+    escreva("║                /   |________|                                       \\                         ║\n")
+    escreva("║               /         ____________________________________         \\                        ║\n")
+    escreva("║              /         |                                    |         \\                       ║\n")
+    escreva("║             /          |                                    |          \\                      ║\n")
+    escreva("║            /           |             Coconut-Man            |           \\                     ║\n")
+    escreva("║           /            |                                    |            \\                    ║\n")
+    escreva("║          /             |               !WIN!                |             \\                   ║\n")
+    escreva("║         /______________|                                    |______________\\                  ║\n")
+    escreva("║         \\_____________|____________________________________|_______________/                  ║\n")
+    escreva("║            \\   \\ \\     pressione ENTER para continuar             / /   /                     ║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
     leia(voltar)
   }
-funcao pontuacao_final(){
+  funcao vitoriarodadaP2(){
     limpa()
-    escreva("|###############################################################################################|\n")
-    escreva("|===============================================================================================|\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║                                    |_RODADA__Win_|                                            ║\n")
+    escreva("║                                                                              ______________   ║\n")
+    escreva("║                                         ___                                 |      ___     |  ║\n")
+    escreva("║                                       _|___|_                               ||____|___|___||  ║\n")
+    escreva("║      ____________________________      (^=^)                                |    { o O }   |  ║\n")
+    escreva("║     |                            7   __|\\ /|__                              |   __\\ = /__  |  ║\n")
+    escreva("║     | Seu Chapeu é ridiculo      |  /         \\                             |______________|  ║\n")
+    escreva("║     |____________________________|                                              Jogador 2     ║\n")
+    escreva("║                       ________________________________________                  Poncho-Man    ║\n")
+    escreva("║                      /                                        \\                               ║\n")
+    escreva("║                     /                                          \\                              ║\n")
+    escreva("║                    /                                            \\                             ║\n")
+    escreva("║                   /   ______            ____                     \\                            ║\n")
+    escreva("║                  /   /      |          /    \\                     \\                           ║\n")
+    escreva("║                 /   /_______|         /______\\                     \\                          ║\n")
+    escreva("║                /   |________|                                       \\                         ║\n")
+    escreva("║               /         ____________________________________         \\                        ║\n")
+    escreva("║              /         |                                    |         \\                       ║\n")
+    escreva("║             /          |                                    |          \\                      ║\n")
+    escreva("║            /           |             Poncho-Man             |           \\                     ║\n")
+    escreva("║           /            |                                    |            \\                    ║\n")
+    escreva("║          /             |               !WIN!                |             \\                   ║\n")
+    escreva("║         /______________|                                    |______________\\                  ║\n")
+    escreva("║         \\_____________|____________________________________|_______________/                  ║\n")
+    escreva("║            \\   \\ \\     pressione ENTER para continuar             / /   /                     ║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+    leia(voltar)
+  }
+  funcao vitoria_P1(){
+    limpa()
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║                                    ____________________                                       ║\n")
+    escreva("║                                   /                    \\                                      ║\n")
+    escreva("║                                  |                      |                                     ║\n")
+    escreva("║                                  |                      |                                     ║\n")
+    escreva("║                            __    |                      |    __                               ║\n")
+    escreva("║                           |  \\___|______________________|___/  |                              ║\n")
+    escreva("║                           \\____________________________________/                              ║\n")
+    escreva("║                                 ||          ___          ||                                   ║\n")
+    escreva("║                                 ||        _|___|_        ||                                   ║\n")
+    escreva("║                                 ||         (O=O)         ||                                   ║\n")
+    escreva("║                                 ||       __|\\ /|__       ||                                   ║\n")
+    escreva("║                                 ||                       ||                                   ║\n")
+    escreva("║                                 ||______________________/ |                                   ║\n")
+    escreva("║                                 |______ Coconut-Man ______|                                   ║\n")
+    escreva("║          ░   ╔══════════════════════════════════════════════════════════════╗                 ║\n")
+    escreva("║     ░        ║   _         __         _     ________          __     __     ║          ░      ║\n")
+    escreva("║ ░          ░ ║  \\  \\     /    \\     /  /      |  |          /   |   / /     ║  ░         ░    ║\n")
+    escreva("║   ░   ░░ ░   ║   \\  \\   /  /\\  \\   /  /       |  |         / /| |  / /      ║     ░           ║\n")
+    escreva("║ ░  ░░  ░   ░░║    \\  \\_/  /  \\  \\_/  /        |  |        / / | |_/ /       ║   ░    ░░       ║\n")
+    escreva("║░ ░  ░░ ░░ ░  ║     \\_____/    \\_____/       __|__|__     /_/  |____/        ║░   ░  ░░   ░░░ ║\n")
+    escreva("║░░░░░░░░░░░░░░╚══════════════════════════════════════════════════════════════╝░░░░░░░░░░░░░░░░░║\n")
+    escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("║▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Digite 1 se quer ver os Score ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓║\n")
+    escreva("║▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Digite ENTER para continuar ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+    leia(voltar)
+
+    escolha(voltar){
+      caso "1":
+      pontuacao_final()
+      pare
+      caso contrario:
+      menu() 
+      pare
+    }
+  }
+  funcao vitoria_P2(){
+    limpa()
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║                                    ____________________                                       ║\n")
+    escreva("║                                   /                    \\                                      ║\n")
+    escreva("║               _                  |                      |                   _                 ║\n")
+    escreva("║              | \\                 |                      |                  / |                ║\n")
+    escreva("║              |  \\                |                      |                 /  |                ║\n")
+    escreva("║              |   \\_______________|______________________|________________/   |                ║\n")
+    escreva("║              \\_______________________________________________________________/                ║\n")
+    escreva("║                                 ||          ___          ||                                   ║\n")
+    escreva("║                                 ||    |____|___|___|     ||                                   ║\n")
+    escreva("║                                 ||        { - - }        ||                                   ║\n")
+    escreva("║                                 ||       __\\ = /__       ||                                   ║\n")
+    escreva("║                                 ||                       ||                                   ║\n")
+    escreva("║                                 ||______________________/ |                                   ║\n")
+    escreva("║                                 |_____ Poncho-Man ________|                                   ║\n")
+    escreva("║          ░   ╔══════════════════════════════════════════════════════════════╗                 ║\n")
+    escreva("║     ░        ║   _         __         _     ________          __     __     ║          ░      ║\n")
+    escreva("║ ░          ░ ║  \\  \\     /    \\     /  /      |  |          /   |   / /     ║  ░         ░    ║\n")
+    escreva("║   ░   ░░ ░   ║   \\  \\   /  /\\  \\   /  /       |  |         / /| |  / /      ║     ░           ║\n")
+    escreva("║ ░  ░░  ░   ░░║    \\  \\_/  /  \\  \\_/  /        |  |        / / | |_/ /       ║   ░    ░░       ║\n")
+    escreva("║░ ░  ░░ ░░ ░  ║     \\_____/    \\_____/       __|__|__     /_/  |____/        ║░   ░  ░░   ░░░ ║\n")
+    escreva("║░░░░░░░░░░░░░░╚══════════════════════════════════════════════════════════════╝░░░░░░░░░░░░░░░░░║\n")
+    escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("║▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Digite 1 se quer ver os Score ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓║\n")
+    escreva("║▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Digite ENTER para continuar ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
+    leia(voltar)
+
+    escolha(voltar){
+      caso "1":
+      pontuacao_final()
+      pare
+      caso contrario:
+      menu() 
+      pare
+    }
+  }
+  funcao pontuacao_final(){
+    limpa()
+    escreva("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
     escreva("|                                                                                               |\n")
     escreva("|                                          SCORES                                               |\n")
     escreva("|                                                                                               |\n")
     escreva("|                                                                                               |\n")
-    escreva("|                   Jogador 1 - Coconut-Man:                                                    |\n")
+    escreva("|                   Jogador 1 - Coconut-Man: ",pontosPlayer1_Partida,"                                                  |\n")
     escreva("|                                                                                               |\n")
     escreva("|                                                                                               |\n")
     escreva("|                                                                                               |\n")
@@ -620,7 +697,7 @@ funcao pontuacao_final(){
     escreva("|                                                                                               |\n")
     escreva("|                                                                                               |\n")
     escreva("|                                                                                               |\n")
-    escreva("|                   Jogador 2 - Long-Hat-Man:                                                   |\n")
+    escreva("|                   Jogador 2 - Long-Hat-Man: ",pontosPlayer2_Partida,"                                                |\n")
     escreva("|                                                                                               |\n")
     escreva("|                                                                                               |\n")
     escreva("|                                                                                               |\n")
@@ -633,8 +710,9 @@ funcao pontuacao_final(){
     escreva("|                                                                                               |\n")
     escreva("|                                                                                               |\n")
     escreva("|                   pressione qualquer tecla para retornar para retornar ao menu                |\n")
-    escreva("|===============================================================================================|\n")
-    escreva("|###############################################################################################|\n")
+    escreva("╠═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
+    escreva("║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║\n")
     leia(voltar)
+    voltar = menu()
  }
 }
